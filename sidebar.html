@@ -1,0 +1,60 @@
+<!-- Sidebar Container -->
+<div class="sidebar-container">
+    <!-- User Info Section -->
+    <div class="user-info">
+        <i class="fas fa-user"></i>
+        <h4 id="username">Loading...</h4>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar">
+        <a href="summary.php">
+            <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
+        <a href="update_tc3.php">
+            <i class="fas fa-vial"></i> Testing
+        </a>
+        <a href="bug_details.php">
+            <i class="fas fa-bug"></i> Bug Reports
+        </a>
+        <a href="logout.php" class="text-danger">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+
+        <div class="admin-section" id="adminSection" style="display: none;">
+            <h4 onclick="toggleAdminLinks()"><i class="fas fa-cogs"></i> Admin <i class="fas fa-chevron-down"></i></h4>
+            <div class="admin-links">
+                <a href="employees.php">
+                    <i class="fas fa-users"></i> Employees
+                </a>
+                <a href="apk_up.php">
+                    <i class="fas fa-upload"></i> APK Admin
+                </a>
+                <a href="index1.php">
+                    <i class="fas fa-list-alt"></i> TCM
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to toggle the visibility of admin links
+    function toggleAdminLinks() {
+        const adminLinks = document.querySelector('.admin-links');
+        adminLinks.style.display = adminLinks.style.display === 'block' ? 'none' : 'block';
+    }
+    
+    // Load user info
+    fetch('api/get_user_info.php')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('username').textContent = data.username;
+            if (data.is_admin) {
+                document.getElementById('adminSection').style.display = 'block';
+            }
+        })
+        .catch(error => {
+            console.error('Error loading user info:', error);
+        });
+</script>

@@ -1,0 +1,259 @@
+/* Your existing CSS styles */
+		  html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light Grey Background */
+            overflow: hidden; /* Prevents unwanted scrolling */
+        }
+
+        /* Wrapper to hold both sidebar and content */
+        .wrapper {
+            display: flex;
+            height: 100vh; /* Full viewport height */
+            padding: 20px;
+        }
+
+        /* Sidebar: Fixed, No Scrolling */
+        .sidebar-container {
+            width: 200px;
+            height: 100vh; /* Fixed height */
+            background-color: #fff; /* Sidebar color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+            overflow: hidden; /* Prevents sidebar scrolling */
+            position: fixed; /* Keeps sidebar fixed */
+            left: 20px; /* Keeps margin spacing */
+            top: 20px; /* Keeps margin spacing */
+            bottom: 20px;
+        }
+
+        /* Sidebar Links */
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #333;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .sidebar a i {
+            margin-right: 10px; /* Adjust spacing */
+        }
+
+        /* Content Container: Scrollable */
+        .content-container {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            height: 100vh; /* Fixed height */
+            margin-left: 220px; /* Offset for the fixed sidebar */
+            overflow-y: auto; /* Enables scrolling */
+        }
+        .admin-section h4 {
+            font-size: 16px; /* Match this to the sidebar links' font size */
+            cursor: pointer; /* Indicates it's clickable */
+        }
+        .admin-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        /* User Info */
+        .user-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .user-info i {
+            font-size: 20px;
+            margin-right: 5px;
+        }
+
+        .user-info h4 {
+            font-size: 16px;
+            margin: 5px 0 0;
+            color: #333;
+        }
+        .admin-links {
+            display: none; /* Initially hidden */
+        }
+        .download-apk-btn {
+            position: absolute;
+            top: 60px; /* Adjusted position */
+            right: 40px;
+        }
+
+        /* Card styling */
+        .bug-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            background-color: #fff;
+        }
+        
+        .bug-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bug-card-header {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            background-color: #f8f9fa;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .bug-card-body {
+            padding: 15px;
+        }
+        
+        .bug-card-footer {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            text-align: right;
+            background-color: #f8f9fa;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        
+        .bug-type {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .bug-type-critical {
+            background-color: #dc3545; /* Red */
+        }
+        
+        .bug-type-high {
+            background-color: #fd7e14; /* Orange */
+        }
+        
+        .bug-type-low {
+            background-color: #ffc107; /* Yellow */
+            color: #212529;
+        }
+        
+        .bug-info {
+            margin-bottom: 10px;
+        }
+        
+        .bug-info label {
+            font-weight: bold;
+            margin-bottom: 3px;
+            display: block;
+            color: #555;
+        }
+        
+        .bug-info p {
+            margin: 0;
+            overflow-wrap: break-word;
+        }
+        
+        .attachment-preview {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+            max-height: 150px;
+        }
+        
+        .expandable-text {
+            max-height: 60px;
+            overflow: hidden;
+            position: relative;
+            transition: max-height 0.3s ease;
+        }
+        
+        .expandable-text.expanded {
+            max-height: 1000px;
+        }
+        
+        .expand-btn {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: white;
+            padding: 2px 5px;
+            font-size: 12px;
+            cursor: pointer;
+            color: #007bff;
+        }
+        
+        .filter-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+            margin-bottom: 20px;
+        }
+        
+        .filter-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        .filter-row label {
+            font-size: 14px;
+        }
+        
+        .clear-bugs-btn {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        
+        /* Blue icons */
+        .bug-info i {
+            color: #007bff;
+        }
+        
+        /* View attachment button */
+        .view-attachment-btn {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            color: #007bff;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+        
+        .view-attachment-btn:hover {
+            background-color: #e9ecef;
+        }
+        
+        /* For two columns inside card */
+        .bug-card-columns {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+        
+        .bug-card-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 10px;
+        }
